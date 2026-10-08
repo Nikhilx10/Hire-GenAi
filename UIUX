@@ -1,2 +1,103 @@
-New Contribution
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HireGen AI - Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f5f7fb;color:#172033;display:flex;min-height:100vh}
+.sidebar{width:230px;background:#111827;color:white;padding:25px 18px}
+.logo{font-size:24px;font-weight:700;margin-bottom:35px}
+.logo span{color:#60a5fa}
+.nav div{padding:13px 14px;margin:5px 0;border-radius:8px;color:#cbd5e1;cursor:pointer}
+.nav .active,.nav div:hover{background:#2563eb;color:white}
+.main{flex:1;padding:30px 38px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.top h1{font-size:28px}.profile{background:white;padding:10px 16px;border-radius:20px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
+.card{background:white;border-radius:12px;padding:22px;box-shadow:0 2px 10px #0000000b}
+.label{color:#64748b;font-size:14px;margin-bottom:10px}.number{font-size:30px;font-weight:700}
+.content{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.upload{border:2px dashed #94a3b8;border-radius:10px;padding:35px;text-align:center;margin-top:15px}
+button{background:#2563eb;color:white;border:0;padding:11px 18px;border-radius:7px;cursor:pointer;margin-top:15px}
+button:hover{background:#1d4ed8}
+.skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.skill{background:#dbeafe;color:#1d4ed8;padding:7px 10px;border-radius:15px;font-size:13px}
+.gap{background:#fee2e2;color:#b91c1c}
+.score{text-align:center;font-size:52px;font-weight:700;color:#2563eb;margin:15px}
+small{color:#64748b}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="logo">HireGen <span>AI</span></div>
+  <div class="nav">
+    <div class="active">Dashboard</div>
+    <div>My Resume</div>
+    <div>Job Matches</div>
+    <div>Applications</div>
+    <div>Skill Gap</div>
+    <div>Interview Prep</div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="top">
+    <h1>Candidate Dashboard</h1>
+    <div class="profile">Nikhil Mishra ▾</div>
+  </div>
+
+  <section class="cards">
+    <div class="card"><div class="label">ATS / Match Score</div><div class="number">82%</div><small>Prototype result</small></div>
+    <div class="card"><div class="label">Job Matches</div><div class="number">12</div><small>Relevant opportunities</small></div>
+    <div class="card"><div class="label">Skills Matched</div><div class="number">8</div><small>From current resume</small></div>
+  </section>
+
+  <section class="content">
+    <div class="card">
+      <h2>Resume Analysis</h2>
+      <div class="upload">
+        <p><strong>Upload your Resume</strong></p>
+        <small>PDF or DOCX files supported</small><br>
+        <input id="file" type="file" accept=".pdf,.doc,.docx" style="margin-top:15px">
+        <br><button onclick="analyze()">Analyze Resume</button>
+        <p id="status" style="margin-top:12px;color:#2563eb"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Current Match</h2>
+      <div class="score">82%</div>
+      <p style="text-align:center"><small>Resume ↔ Job Description</small></p>
+    </div>
+
+    <div class="card">
+      <h2>Matched Skills</h2>
+      <div class="skills">
+        <span class="skill">Python</span><span class="skill">SQL</span>
+        <span class="skill">Machine Learning</span><span class="skill">Pandas</span>
+        <span class="skill">NumPy</span><span class="skill">Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Skill Gaps</h2>
+      <div class="skills">
+        <span class="skill gap">NLP</span><span class="skill gap">Docker</span>
+        <span class="skill gap">Cloud</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function analyze(){
+  const f=document.getElementById("file").files[0];
+  document.getElementById("status").textContent =
+    f ? "Prototype analysis started for: " + f.name : "Please select a resume first.";
+}
+</script>
+</body>
+</html>
 
